@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+
+  <body class="container">
+
+    <header>
+      <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+      
+      <div class="jumbotron">
+        
+        <% for (let i = 0; i < photos.length; i++) { %>
+          <img src="<%= photos[i].url %>" class="rounded mx-auto d-block">
+
+          <br/>
+          <h6>Comments:</h6>
+
+          <% photos[i].comments.forEach(comment => { %>
+            <li><%= comment.author %>: <%= comment.comment_text %></li>
+            <audio controls="controls" src="<%= speech_base_url %>/c_<%= comment._id %>.wav">
+              Your browser does not support the HTML5 Audio element.
+            </audio>
+          <% }) %> 
+
+          <br/>
+          <%- include('../partials/comment_form', {photo_id: photos[i]._id}); %>
+
+          <% if (i != photos.length - 1) { %>
+            <hr/>
+          <% } %>  
+        <% }; %>
+
+      </div>
+
+    </main>
+
+    <% if (error) { %> 
+      <script type="text/javascript">
+        alert('Your comment cannot be accepted.');
+      </script>
+    <% } %> 
+
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<form method="POST" action="/photo_comment">
+
+  <div class="mb-3">
+    <label for="author" class="form-label">Name</label>
+    <input class="form-control" name="author" id="author">
+  </div>
+
+  <div class="mb-3">
+    <label for="comment" class="form-label">Comment</label>
+    <input class="form-control" name="comment" id="comment">
+  </div>
+
+  <input type="hidden" name="photo_id" value="<%= photo_id %> " />
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

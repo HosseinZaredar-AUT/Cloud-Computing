@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+  <%- include('../partials/header'); %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    
+    <ul>
+      <% stories.forEach(function(story, i, array) { %>
+        <strong><%= story.story_content %></strong>
+        <br/>
+        <br/>
+        <audio controls="controls" src="<%= speech_base_url %>/s_<%= story._id %>.wav">
+          Your browser does not support the HTML5 Audio element.
+        </audio>
+
+        <% if (i != array.length - 1) { %>
+          <hr/>            
+        <% } %> 
+
+      <% }); %>
+    </ul>
+
+  </div>
+</main>
+
+</body>
+</html>

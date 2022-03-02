@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: time-config
+data:
+  time_api: "http://worldtimeapi.org/api/timezone/America/New_York"
+  port: "9000"
